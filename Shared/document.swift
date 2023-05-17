@@ -24,21 +24,22 @@ struct document: View {
                 createSong()
             }
         }
-        
     }
+    
     func createSong() {
         let db = Firestore.firestore()
-        
         do {
             try db.collection("songs").document("陪你很久很久").setData(from: Song(name: "陪你很", singer: "小", rate: 20))
         } catch {
             print(error)
         }
+        
     }
 }
 
 struct document_Previews: PreviewProvider {
     static var previews: some View {
         document()
+            .previewInterfaceOrientation(.landscapeRight)
     }
 }

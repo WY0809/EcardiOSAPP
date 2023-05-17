@@ -16,7 +16,7 @@ struct E_cardApp: App {
     
     var body: some Scene {
         WindowGroup {
-            document()
+            LoginView()
         }
     }
 }
