@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6314EE212A14B70F009D2C59 /* GameModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6314EE202A14B70F009D2C59 /* GameModel.swift */; };
+		6314EE222A14B70F009D2C59 /* GameModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6314EE202A14B70F009D2C59 /* GameModel.swift */; };
 		6358AAA52A04F86E00A51DA9 /* E_cardApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6358AA7D2A04F86B00A51DA9 /* E_cardApp.swift */; };
 		6358AAA62A04F86E00A51DA9 /* E_cardApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6358AA7D2A04F86B00A51DA9 /* E_cardApp.swift */; };
 		6358AAA92A04F86E00A51DA9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6358AA7F2A04F86E00A51DA9 /* Assets.xcassets */; };
@@ -48,6 +50,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		6314EE202A14B70F009D2C59 /* GameModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameModel.swift; sourceTree = "<group>"; };
 		6358AA7D2A04F86B00A51DA9 /* E_cardApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = E_cardApp.swift; sourceTree = "<group>"; };
 		6358AA7F2A04F86E00A51DA9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6358AA842A04F86E00A51DA9 /* E-card.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "E-card.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -153,6 +156,7 @@
 			isa = PBXGroup;
 			children = (
 				63863B792A0F8A400076EFDF /* GameView.swift */,
+				6314EE202A14B70F009D2C59 /* GameModel.swift */,
 			);
 			path = Game;
 			sourceTree = "<group>";
@@ -330,6 +334,7 @@
 				636C52F62A0E8E570096AD4C /* HomeModel.swift in Sources */,
 				6358AAC72A050BCD00A51DA9 /* LoginView.swift in Sources */,
 				636C52F32A0E8E420096AD4C /* HomeView.swift in Sources */,
+				6314EE212A14B70F009D2C59 /* GameModel.swift in Sources */,
 				6358AAA52A04F86E00A51DA9 /* E_cardApp.swift in Sources */,
 				63863B7A2A0F8A400076EFDF /* GameView.swift in Sources */,
 			);
@@ -344,6 +349,7 @@
 				636C52F72A0E8E570096AD4C /* HomeModel.swift in Sources */,
 				6358AAC82A050BCD00A51DA9 /* LoginView.swift in Sources */,
 				636C52F42A0E8E420096AD4C /* HomeView.swift in Sources */,
+				6314EE222A14B70F009D2C59 /* GameModel.swift in Sources */,
 				6358AAA62A04F86E00A51DA9 /* E_cardApp.swift in Sources */,
 				63863B7B2A0F8A400076EFDF /* GameView.swift in Sources */,
 			);

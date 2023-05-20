@@ -14,9 +14,12 @@ struct E_cardApp: App {
         FirebaseApp.configure()
     }
     
+    @State private var roomnumber = "12345"
     var body: some Scene {
         WindowGroup {
-            LoginView()
+            //LoginView()
+            HomeView()
+            //GameView(roomnumber: $roomnumber)
         }
     }
 }

@@ -14,7 +14,7 @@ struct LoginView: View {
     
     var body: some View {
         ZStack{
-            Image("background")
+            Image("Background")
                 .resizable()
                 .ignoresSafeArea()
             HStack{

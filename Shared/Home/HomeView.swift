@@ -11,8 +11,9 @@ struct HomeView: View {
     @StateObject private var viewModel = HomeModel()
     
     var body: some View {
+        
         ZStack{
-            Image("background")
+            Image("Background")
                 .resizable()
                 .ignoresSafeArea()
             
@@ -44,12 +45,13 @@ struct HomeView: View {
                             )
                             .fixedSize()
                             .frame(width: 180, height:80, alignment: .center)
-                    }.fullScreenCover(isPresented: $viewModel.ShowGameView){
-                        GameView()
+                    }.fullScreenCover(isPresented: $viewModel.ShowGameView1){
+                        GameView(roomnumber: $viewModel.createRoomNumber)
                     }
                     
                     Button{
-                        
+                        viewModel.JoinGame()
+                        print(viewModel.joinRoomNumber)
                     }label:{
                         Text("Join a Game")
                             .font(.title3)
@@ -64,11 +66,10 @@ struct HomeView: View {
                             )
                             .fixedSize()
                             .frame(width: 180, height:80, alignment: .center)
-                    }.fullScreenCover(isPresented: $viewModel.ShowGameView){
-                        GameView()
+                    }.fullScreenCover(isPresented: $viewModel.ShowGameView2){
+                        GameView(roomnumber: $viewModel.joinRoomNumber)
                     }
                 }
-                Text("\(viewModel.num)")
             }
         }
     }
