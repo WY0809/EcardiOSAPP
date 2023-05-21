@@ -24,7 +24,10 @@ class HomeModel: ObservableObject {
         let user = Auth.auth().currentUser
         let db = Firestore.firestore()
         do {
-            try db.collection("Rooms").document(createRoomNumber).setData(from: Room(roomNumber: createRoomNumber , player1: (user?.displayName)!, player2: ""))
+            try db.collection("Rooms").document(createRoomNumber).setData(from: Room(player1: (user?.displayName)! , player1_deck: "Emperor" , player1_card: "" , player1_check: false ,
+                                                                                     player2: "" ,                   player2_deck: "Slave",    player2_card: "" , player2_check: false ,
+                                                                                     roomNumber: createRoomNumber , Status: ""
+                                                                                    ))
             ShowGameView1 = true;
         } catch {
             print(error)
@@ -38,7 +41,7 @@ class HomeModel: ObservableObject {
             if let querySnapshot = querySnapshot {
                 self.ShowGameView2 = true;
                 let document = querySnapshot.documents.first
-                document?.reference.updateData(["player2": (user?.displayName)!], completion: { (error) in
+                document?.reference.updateData(["player2": (user?.displayName)!,"player2_deck": "Slave"], completion: { (error) in
                 })
             }
         }
