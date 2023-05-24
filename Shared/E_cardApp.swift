@@ -19,6 +19,7 @@ struct E_cardApp: App {
         WindowGroup {
             //LoginView()
             HomeView()
+            //PickDeckView()
             //GameView(roomnumber: $roomnumber)
         }
     }

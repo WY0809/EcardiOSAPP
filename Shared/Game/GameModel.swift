@@ -31,6 +31,8 @@ class GameModel: ObservableObject {
     @Published var roomnumber: String = ""
     @Published var player_deck: String = "Slave"
     @Published var Status: String = ""
+    @Published var GameStatus: String = "waiting"
+    
     @Published var Emperor_deck: [String] =  ["Citizen","Citizen","Emperor","Citizen","Citizen"]
     @Published var Slave_deck: [String] =  ["Citizen","Citizen","Slave","Citizen","Citizen"]
     
@@ -112,12 +114,17 @@ class GameModel: ObservableObject {
             querySnapshot.documentChanges.forEach { documentChange in
                 guard let room = try? documentChange.document.data(as: Room.self) else { return }
                 
+                self.roomnumber = room.roomNumber
                 if((user?.displayName)! == room.player1){
                     self.player_deck = room.player1_deck
                 }else if((user?.displayName)! == room.player2){
                     self.player_deck = room.player2_deck
                 }
                 self.Status = room.Status
+                
+                if(room.player2 != ""){
+                    self.GameStatus = "start"
+                }
             }
         }
     }
