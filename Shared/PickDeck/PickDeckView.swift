@@ -18,42 +18,75 @@ struct PickDeckView: View {
                 .ignoresSafeArea()
             VStack{
                 Text("Room Number: \(roomnumber)")
-                HStack{
-                    ZStack{
-                        RoundedRectangle(cornerRadius: 10)
-                            .frame(width: UIScreen.main.bounds.height*11/60*1.5, height:UIScreen.main.bounds.height/4*1.5)
-                            .foregroundColor(.black)
-                            .border(Color.black, width: 3)
-                            .opacity(0.6)
-                        Image("BlackPeople")
+                VStack(alignment: .center, spacing: 0){
+                    HStack{
+                        ZStack{
+                            RoundedRectangle(cornerRadius: 10)
+                                .frame(width: UIScreen.main.bounds.height*11/60*1.5, height:UIScreen.main.bounds.height/4*1.5)
+                                .foregroundColor(.black)
+                                .border(Color.black, width: 3)
+                                .opacity(0.4)
+                            Image("BlackPeople")
+                                .resizable()
+                                .frame(width: UIScreen.main.bounds.height*11/60*1.5, height:UIScreen.main.bounds.height/4*1.5)
+                            if(viewModel.Player1_deck == "Emperor"){
+                                Image("Tonegawa")
+                                    .resizable()
+                                    .frame(width: UIScreen.main.bounds.height*11/60*1.5, height:UIScreen.main.bounds.height/4*1.5)
+                            }else if(viewModel.Player1_deck == "Slave"){
+                                Image("Kaise")
+                                    .resizable()
+                                    .frame(width: UIScreen.main.bounds.height*11/60*1.5, height:UIScreen.main.bounds.height/4*1.5)
+                            }
+                        }
+                        Image("VS")
                             .resizable()
                             .frame(width: UIScreen.main.bounds.height*11/60*1.5, height:UIScreen.main.bounds.height/4*1.5)
-                        if(viewModel.SelectDeck == "Emperor"){
-                            Image("Tonegawa")
-                                .resizable()
+                            .opacity(viewModel.opacity)//animation
+                        
+                        ZStack{
+                            RoundedRectangle(cornerRadius: 10)
                                 .frame(width: UIScreen.main.bounds.height*11/60*1.5, height:UIScreen.main.bounds.height/4*1.5)
-                        }else if(viewModel.SelectDeck == "Slave"){
-                            Image("Kaise")
-                                .resizable()
-                                .frame(width: UIScreen.main.bounds.height*11/60*1.5, height:UIScreen.main.bounds.height/4*1.5)
+                                .foregroundColor(.black)
+                                .border(Color.black, width: 3)
+                                .opacity(0.4)
+                            LoadingView()
+                            if(viewModel.isPlayer2){
+                                Image("BlackPeople")
+                                    .resizable()
+                                    .frame(width: UIScreen.main.bounds.height*11/60*1.5, height:UIScreen.main.bounds.height/4*1.5)
+                            }
+                            if(viewModel.Player2_deck == "Emperor"){
+                                Image("Tonegawa")
+                                    .resizable()
+                                    .frame(width: UIScreen.main.bounds.height*11/60*1.5, height:UIScreen.main.bounds.height/4*1.5)
+                            }else if(viewModel.Player2_deck == "Slave"){
+                                Image("Kaise")
+                                    .resizable()
+                                    .frame(width: UIScreen.main.bounds.height*11/60*1.5, height:UIScreen.main.bounds.height/4*1.5)
+                            }
                         }
                     }
-                    Image("VS")
-                        .resizable()
-                        .frame(width: UIScreen.main.bounds.height*11/60*1.5, height:UIScreen.main.bounds.height/4*1.5)
-                        .opacity(viewModel.opacity)//animation
-                    
-                    ZStack{
-                        RoundedRectangle(cornerRadius: 10)
-                            .frame(width: UIScreen.main.bounds.height*11/60*1.5, height:UIScreen.main.bounds.height/4*1.5)
-                            .foregroundColor(.black)
-                            .border(Color.black, width: 3)
-                            .opacity(0.6)
-                        LoadingView()
-//                        Image("BlackPeople")
-//                            .resizable()
-//                            .frame(width: UIScreen.main.bounds.height*11/60*1.5, height:UIScreen.main.bounds.height/4*1.5)
-                        
+                    HStack(alignment: .center, spacing: UIScreen.main.bounds.height*11/60*1.7){
+                        ZStack{
+                            RoundedRectangle(cornerRadius: 10)
+                                .frame(width: UIScreen.main.bounds.height*11/60*1.5, height:UIScreen.main.bounds.height/4*1.5/6)
+                                .foregroundColor(.black)
+                                .border(Color.black, width: 3)
+                                .opacity(0.4)
+                            Text("Ready")
+                                .opacity(0.6)
+                        }
+                        ZStack{
+                            RoundedRectangle(cornerRadius: 10)
+                                .frame(width: UIScreen.main.bounds.height*11/60*1.5, height:UIScreen.main.bounds.height/4*1.5/7)
+                                .foregroundColor(.black)
+                                .border(Color.black, width: 3)
+                                .opacity(0.4)
+                            Text("Ready")
+                                .foregroundColor(Color(hue: 0.658, saturation: 0.037, brightness: 0.646, opacity: 0.426))
+                               
+                        }
                     }
                 }
                 Picker(selection: $viewModel.SelectDeck) {
@@ -66,6 +99,9 @@ struct PickDeckView: View {
                 }
                 .pickerStyle(SegmentedPickerStyle())
                 .frame(width: UIScreen.main.bounds.height*11/60*5, height:30)
+                .onChange(of: viewModel.SelectDeck) { Deck in
+                    viewModel.PickDeck(Deck: Deck)
+                }
                 
                 
                 
@@ -94,6 +130,7 @@ struct PickDeckView: View {
         }
         .onAppear {
             viewModel.roomnumber = roomnumber
+            viewModel.Onappear()
         }
     }
 }

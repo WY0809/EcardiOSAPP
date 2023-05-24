@@ -32,7 +32,7 @@ struct GameView: View {
                         if(viewModel.GameStatus == "waiting"){
                             LoadingView()
                         }else{
-                            Text("Status:\(viewModel.Status)")
+                            Text("Status : \(viewModel.Status)")
                         }
                         HStack(alignment: .center, spacing: UIScreen.main.bounds.height*11/60*3.5){
                             CardAreaView()
@@ -46,10 +46,17 @@ struct GameView: View {
                                 Button{
                                     viewModel.PickCard(i: i)
                                 }label:{
-                                    Image(viewModel.Emperor_deck[i])
-                                        .resizable()
-                                        .frame(width: UIScreen.main.bounds.height*11/60, height:UIScreen.main.bounds.height/4, alignment: .center)
-                                        .fixedSize()
+                                    if(viewModel.isPlayer2){
+                                        Image(viewModel.Emperor_deck2[i])
+                                            .resizable()
+                                            .frame(width: UIScreen.main.bounds.height*11/60, height:UIScreen.main.bounds.height/4, alignment: .center)
+                                            .fixedSize()
+                                    }else{
+                                        Image(viewModel.Emperor_deck1[i])
+                                            .resizable()
+                                            .frame(width: UIScreen.main.bounds.height*11/60, height:UIScreen.main.bounds.height/4, alignment: .center)
+                                            .fixedSize()
+                                    }
                                 }
                             }
                         }else if(viewModel.player_deck == "Slave"){
@@ -57,10 +64,17 @@ struct GameView: View {
                                 Button{
                                     viewModel.PickCard(i: i)
                                 }label:{
-                                    Image(viewModel.Slave_deck[i])
-                                        .resizable()
-                                        .frame(width: UIScreen.main.bounds.height*11/60, height:UIScreen.main.bounds.height/4, alignment: .center)
-                                        .fixedSize()
+                                    if(viewModel.isPlayer2){
+                                        Image(viewModel.Slave_deck2[i])
+                                            .resizable()
+                                            .frame(width: UIScreen.main.bounds.height*11/60, height:UIScreen.main.bounds.height/4, alignment: .center)
+                                            .fixedSize()
+                                    }else{
+                                        Image(viewModel.Slave_deck1[i])
+                                            .resizable()
+                                            .frame(width: UIScreen.main.bounds.height*11/60, height:UIScreen.main.bounds.height/4, alignment: .center)
+                                            .fixedSize()
+                                    }
                                 }
                             }
                         }
