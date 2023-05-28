@@ -11,6 +11,7 @@ import SwiftUI
 
 struct GameView: View {
     @StateObject private var viewModel = GameModel()
+    @State private var isFaceUp = false
     @Binding var roomnumber: String
     var body: some View {
         ZStack{
@@ -19,24 +20,32 @@ struct GameView: View {
                 .ignoresSafeArea()
             HStack(alignment: .center, spacing: 30){
                 VStack{
-                    Text("roomnumber:\(viewModel.roomnumber)")
+                    Text("Room Number: \(viewModel.roomnumber)")
                     HStack{
                         ForEach(0...viewModel.round-1, id: \.self){ i in
                             Image("Back")
                                 .resizable()
                                 .frame(width: UIScreen.main.bounds.height*11/60, height:UIScreen.main.bounds.height/4, alignment: .center)
                                 .fixedSize()
+                                .opacity(viewModel.picking_opacity[i])
+                                .animation(.default, value: viewModel.picking_opacity[i])
                         }
                     }
                     ZStack{
-                        if(viewModel.GameStatus == "waiting"){
-                            LoadingView()
-                        }else{
-                            Text("Status : \(viewModel.Status)")
-                        }
+                        Text("Status : \(viewModel.Status)")
                         HStack(alignment: .center, spacing: UIScreen.main.bounds.height*11/60*3.5){
-                            CardAreaView()
-                            CardAreaView()
+                            ZStack{
+                                CardAreaView()
+                                CardView(cardImage: Image(viewModel.player1_card), cardBackImage: Image("Back"), isFaceUp: $viewModel.isFaceUp)
+                                    .opacity(viewModel.mid_opacity)
+                                    .animation(.default, value: viewModel.mid_opacity)
+                            }
+                            ZStack{
+                                CardAreaView()
+                                CardView(cardImage: Image(viewModel.player2_card), cardBackImage: Image("Back"), isFaceUp: $viewModel.isFaceUp)
+                                    .opacity(viewModel.mid_opacity)
+                                    .animation(.default, value: viewModel.mid_opacity)
+                            }
                         }
                     }
                     //ProgressView(value: 1)//做倒計時動畫
@@ -51,11 +60,17 @@ struct GameView: View {
                                             .resizable()
                                             .frame(width: UIScreen.main.bounds.height*11/60, height:UIScreen.main.bounds.height/4, alignment: .center)
                                             .fixedSize()
+                                            .border(Color.red, width: viewModel.picking[i])
+                                            .opacity(viewModel.picking_opacity[i])
+                                            .animation(.default, value: viewModel.picking_opacity[i])
                                     }else{
                                         Image(viewModel.Emperor_deck1[i])
                                             .resizable()
                                             .frame(width: UIScreen.main.bounds.height*11/60, height:UIScreen.main.bounds.height/4, alignment: .center)
                                             .fixedSize()
+                                            .border(Color.red, width: viewModel.picking[i])
+                                            .opacity(viewModel.picking_opacity[i])
+                                            .animation(.default, value: viewModel.picking_opacity[i])
                                     }
                                 }
                             }
@@ -69,24 +84,39 @@ struct GameView: View {
                                             .resizable()
                                             .frame(width: UIScreen.main.bounds.height*11/60, height:UIScreen.main.bounds.height/4, alignment: .center)
                                             .fixedSize()
+                                            .border(Color.red, width: viewModel.picking[i])
+                                            .opacity(viewModel.picking_opacity[i])
+                                            .animation(.default, value: viewModel.picking_opacity[i])
+                                            
                                     }else{
                                         Image(viewModel.Slave_deck1[i])
                                             .resizable()
                                             .frame(width: UIScreen.main.bounds.height*11/60, height:UIScreen.main.bounds.height/4, alignment: .center)
                                             .fixedSize()
+                                            .border(Color.red, width: viewModel.picking[i])
+                                            .opacity(viewModel.picking_opacity[i])
+                                            .animation(.default, value: viewModel.picking_opacity[i])
                                     }
                                 }
                             }
                         }
                     }
                 }
-                Button{
-                    viewModel.Check()
-                }label:{
-                    Text("✅")
-                        .font(.largeTitle)
+                VStack(alignment: .center, spacing: 100){
+                    Button{
+                        viewModel.Check()
+                    }label:{
+                        Text("✅✅✅")
+                            .font(.largeTitle)
+                    }
+                    Button{
+                        viewModel.restart()
+                    }label:{
+                        Text("🔄🔄🔄")
+                            .font(.largeTitle)
+                    }
                 }
-                
+                .offset(x: 10, y: 50)
             }
             
         }

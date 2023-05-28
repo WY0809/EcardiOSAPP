@@ -28,7 +28,8 @@ class HomeModel: ObservableObject {
                                                                                      player1_ready: false,
                                                                                      player2: "" ,                   player2_deck: "",  player2_card: "" , player2_check: false,
                                                                                      player2_ready: false,
-                                                                                     roomNumber: createRoomNumber , Status: "" , ready_check: false
+                                                                                     roomNumber: createRoomNumber , Status: "" , ready_check: false, round_check: false,
+                                                                                     isGameover: false
                                                                                     ))
             ShowPickDeckView1 = true;
         } catch {
