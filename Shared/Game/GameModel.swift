@@ -126,6 +126,7 @@ class GameModel: ObservableObject {
                             }else if(room.player1_deck == "Slave"){
                                 self.Slave_deck1.remove(at: self.pick_i)
                             }
+                            
                         }
                     }else if((user?.displayName)! == room.player2){
                         if(room.player1_check){
@@ -155,6 +156,7 @@ class GameModel: ObservableObject {
                             }else if(room.player2_deck == "Slave"){
                                 self.Slave_deck2.remove(at: self.pick_i)
                             }
+                            
                         }
                     }
                 }

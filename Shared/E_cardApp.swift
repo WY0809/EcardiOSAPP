@@ -17,8 +17,8 @@ struct E_cardApp: App {
     @State private var roomnumber = "12345"
     var body: some Scene {
         WindowGroup {
-            //LoginView()
-            HomeView()
+            LoginView()
+            //HomeView()
             //PickDeckView()
             //GameView(roomnumber: $roomnumber)
         }
