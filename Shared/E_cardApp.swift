@@ -7,11 +7,14 @@
 
 import SwiftUI
 import Firebase
+import AVFoundation
 
 @main
 struct E_cardApp: App {
     init(){
         FirebaseApp.configure()
+        AVPlayer.setupBgMusic()
+        AVPlayer.bgQueuePlayer.play()
     }
     
     @State private var roomnumber = "12345"

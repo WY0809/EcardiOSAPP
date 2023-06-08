@@ -11,6 +11,10 @@
 		63026C5E2A208F7100C9377D /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63026C5C2A208F7100C9377D /* CardView.swift */; };
 		6314EE212A14B70F009D2C59 /* GameModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6314EE202A14B70F009D2C59 /* GameModel.swift */; };
 		6314EE222A14B70F009D2C59 /* GameModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6314EE202A14B70F009D2C59 /* GameModel.swift */; };
+		634581232A31C0C200A46BAD /* sound.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634581222A31C0C200A46BAD /* sound.swift */; };
+		634581242A31C0C200A46BAD /* sound.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634581222A31C0C200A46BAD /* sound.swift */; };
+		634581272A31C1C900A46BAD /* Theme.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 634581262A31C1C900A46BAD /* Theme.mp3 */; };
+		634581282A31C1C900A46BAD /* Theme.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 634581262A31C1C900A46BAD /* Theme.mp3 */; };
 		6358AAA52A04F86E00A51DA9 /* E_cardApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6358AA7D2A04F86B00A51DA9 /* E_cardApp.swift */; };
 		6358AAA62A04F86E00A51DA9 /* E_cardApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6358AA7D2A04F86B00A51DA9 /* E_cardApp.swift */; };
 		6358AAA92A04F86E00A51DA9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6358AA7F2A04F86E00A51DA9 /* Assets.xcassets */; };
@@ -58,6 +62,8 @@
 /* Begin PBXFileReference section */
 		63026C5C2A208F7100C9377D /* CardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		6314EE202A14B70F009D2C59 /* GameModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameModel.swift; sourceTree = "<group>"; };
+		634581222A31C0C200A46BAD /* sound.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = sound.swift; sourceTree = "<group>"; };
+		634581262A31C1C900A46BAD /* Theme.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Theme.mp3; sourceTree = "<group>"; };
 		6358AA7D2A04F86B00A51DA9 /* E_cardApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = E_cardApp.swift; sourceTree = "<group>"; };
 		6358AA7F2A04F86E00A51DA9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6358AA842A04F86E00A51DA9 /* E-card.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "E-card.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -110,6 +116,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		634581252A31C1B700A46BAD /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				634581262A31C1C900A46BAD /* Theme.mp3 */,
+			);
+			path = Resource;
+			sourceTree = "<group>";
+		};
 		6358AA772A04F86B00A51DA9 = {
 			isa = PBXGroup;
 			children = (
@@ -130,6 +144,8 @@
 				6358AA7F2A04F86E00A51DA9 /* Assets.xcassets */,
 				638ADE3E2A1BA96300E99DA2 /* LoadingView.swift */,
 				63026C5C2A208F7100C9377D /* CardView.swift */,
+				634581222A31C0C200A46BAD /* sound.swift */,
+				634581252A31C1B700A46BAD /* Resource */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -314,6 +330,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				634581272A31C1C900A46BAD /* Theme.mp3 in Resources */,
 				6358AAA92A04F86E00A51DA9 /* Assets.xcassets in Resources */,
 				6358AAC12A04FABC00A51DA9 /* GoogleService-Info.plist in Resources */,
 			);
@@ -323,6 +340,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				634581282A31C1C900A46BAD /* Theme.mp3 in Resources */,
 				6358AAAA2A04F86E00A51DA9 /* Assets.xcassets in Resources */,
 				6358AAC22A04FABC00A51DA9 /* GoogleService-Info.plist in Resources */,
 			);
@@ -360,6 +378,7 @@
 				6358AAA52A04F86E00A51DA9 /* E_cardApp.swift in Sources */,
 				63863B7A2A0F8A400076EFDF /* GameView.swift in Sources */,
 				638ADE3F2A1BA96300E99DA2 /* LoadingView.swift in Sources */,
+				634581232A31C0C200A46BAD /* sound.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -378,6 +397,7 @@
 				6358AAA62A04F86E00A51DA9 /* E_cardApp.swift in Sources */,
 				63863B7B2A0F8A400076EFDF /* GameView.swift in Sources */,
 				638ADE402A1BA96300E99DA2 /* LoadingView.swift in Sources */,
+				634581242A31C0C200A46BAD /* sound.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -534,7 +554,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -563,7 +583,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
